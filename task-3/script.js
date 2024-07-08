@@ -1,5 +1,6 @@
 const cells = document.querySelectorAll('.cell');
-const message = document.getElementById('message');
+const leftMessage = document.getElementById('left-message');
+const rightMessage = document.getElementById('right-message');
 const restartButton = document.getElementById('restart');
 
 let currentPlayer = 'X';
@@ -47,13 +48,13 @@ function checkResult() {
 
     if (roundWon) {
         highlightWinningCells(winningCombination);
-        message.textContent = `Player ${currentPlayer} wins!`;
+        setMessage(`Player ${currentPlayer} wins!`);
         gameActive = false;
         return;
     }
 
     if (!board.includes('')) {
-        message.textContent = 'Draw!';
+        setMessage('Draw!');
         gameActive = false;
         return;
     }
@@ -69,11 +70,16 @@ function changePlayer() {
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
 }
 
+function setMessage(message) {
+    leftMessage.textContent = message;
+    rightMessage.textContent = message;
+}
+
 function restartGame() {
     currentPlayer = 'X';
     board = ['', '', '', '', '', '', '', '', ''];
     gameActive = true;
-    message.textContent = '';
+    setMessage('');
     cells.forEach(cell => {
         cell.textContent = '';
         cell.classList.remove('winning-cell');

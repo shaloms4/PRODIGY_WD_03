@@ -24,7 +24,8 @@ h1 {
 }
 
 #game {
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .board {
@@ -32,7 +33,7 @@ h1 {
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 15px;
-    margin-bottom: 20px;
+    margin: 0 20px;
 }
 
 .cell {
@@ -54,6 +55,7 @@ h1 {
 }
 
 #restart {
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1.5em;
     background-color: #000000;
@@ -69,9 +71,18 @@ h1 {
     transform: scale(1.05); 
 }
 
-#message {
-    margin-top: 5px;
-    font-size: 1.5em;
+.message {
+    width: 150px;
+    text-align: center;
+    font-size: 2em;
     color: #000000;
     font-family: "Pacifico", cursive;
+}
+
+#left-message {
+    margin-right: 20px;
+}
+
+#right-message {
+    margin-left: 20px;
 }
